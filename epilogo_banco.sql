@@ -1,8 +1,5 @@
--- =========================================================================
--- EPÍLOGO — banco de dados (MySQL 8+)
--- Espelha o modelo já usado no epilogo.html: Livro, Pedido, ItemPedido,
 -- EstrategiaPagamento (formas_pagamento) e Cliente (que atua como Observador).
--- =========================================================================
+=
 
 CREATE DATABASE IF NOT EXISTS epilogo_livraria
   CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -120,12 +117,3 @@ INSERT INTO livros (titulo, autor, preco, estoque, genero_id, cor1, cor2, capa) 
 -- cliente de exemplo — senha "123456" (troque depois de testar)
 INSERT INTO clientes (nome, email, senha_hash) VALUES
   ('Nicolly', 'nicolly@correio.com', '$2b$10$tY8px3mmReLR5MsSYpyRf.60QbFESGmMa2MfCNpJYhlKCtc0W34.q');
-
--- =========================================================================
--- MIGRAÇÃO — só rode isto se você JÁ tinha importado o banco antes (sem
--- login) e não quer perder os pedidos que já tem. Se for importar do zero,
--- ignore esta parte, o CREATE TABLE lá em cima já vem com senha_hash.
--- =========================================================================
--- ALTER TABLE clientes ADD COLUMN senha_hash VARCHAR(255) NOT NULL DEFAULT '' AFTER email;
--- UPDATE clientes SET senha_hash = '$2b$10$tY8px3mmReLR5MsSYpyRf.60QbFESGmMa2MfCNpJYhlKCtc0W34.q' WHERE senha_hash = '';
--- (a linha acima dá a senha "123456" pra quem já existia — troque depois)
