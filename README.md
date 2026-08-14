@@ -1,6 +1,6 @@
 # 📚 E-Commerce de Livros (Bookstore)
 
-Um projeto de plataforma de comércio eletrônico de livros desenvolvido em **HTML, CSS e JavaScript**, integrado ao banco de dados **MySQL** e estruturado com **Padrões de Projeto (Design Patterns)**.
+Um projeto de plataforma de comércio eletrônico de livros desenvolvido em **HTML, CSS, JavaScript e PHP**, integrado ao banco de dados **MySQL** e estruturado com **Padrões de Projeto (Design Patterns)**.
 
 ---
 
@@ -24,7 +24,7 @@ O sistema simula o fluxo completo de uma livraria virtual em uma interface web s
 
 | Camada | Tecnologia |
 | :--- | :--- |
-| **Front-end** | HTML5, CSS, JavaScript|
+| **Front-end** | HTML5, CSS, JavaScript, PHP|
 | **Banco de Dados** | MySQL |
 | **Design Patterns** | Strategy Pattern, Observer Pattern |
 | **Controle de Versão** | Git e GitHub |
