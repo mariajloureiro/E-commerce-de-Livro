@@ -1,0 +1,71 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="7kh39A7TnLEqXfbIlenU">
+    <mxGraphModel dx="1032" dy="612" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;Livro&lt;/b&gt;&lt;hr&gt;- titulo: String&lt;br&gt;- autor: String&lt;br&gt;- preco: double&lt;br&gt;- estoque: int&lt;hr&gt;+ getPreco(): double" vertex="1">
+          <mxGeometry height="140" width="200" x="40" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;ItemPedido&lt;/b&gt;&lt;hr&gt;- livro: Livro&lt;br&gt;- quantidade: int&lt;hr&gt;+ getSubtotal(): double" vertex="1">
+          <mxGeometry height="140" width="200" x="320" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;Pedido&lt;/b&gt;&lt;hr&gt;- itens: List&amp;lt;ItemPedido&amp;gt;&lt;br&gt;- status: String&lt;br&gt;- observadores: List&amp;lt;Observador&amp;gt;&lt;br&gt;- estrategiaPagamento: EstrategiaPagamento&lt;hr&gt;+ adicionarObservador(o)&lt;br&gt;+ removerObservador(o)&lt;br&gt;+ notificarObservadores()&lt;br&gt;+ definirEstrategiaPagamento(e)&lt;br&gt;+ finalizarPedido()" vertex="1">
+          <mxGeometry height="220" width="260" x="600" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;&amp;laquo;interface&amp;raquo;&lt;br&gt;Observador&lt;/b&gt;&lt;hr&gt;+ atualizar(pedido: Pedido)" vertex="1">
+          <mxGeometry height="80" width="220" x="960" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;Cliente&lt;/b&gt;&lt;hr&gt;- nome: String&lt;br&gt;- email: String&lt;hr&gt;+ atualizar(pedido: Pedido)" vertex="1">
+          <mxGeometry height="100" width="220" x="960" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;&amp;laquo;interface&amp;raquo;&lt;br&gt;EstrategiaPagamento&lt;/b&gt;&lt;hr&gt;+ processar(valor: double): boolean" vertex="1">
+          <mxGeometry height="80" width="260" x="600" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;PagamentoCartao&lt;/b&gt;&lt;hr&gt;+ processar(valor): boolean" vertex="1">
+          <mxGeometry height="80" width="180" x="400" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;PagamentoBoleto&lt;/b&gt;&lt;hr&gt;+ processar(valor): boolean" vertex="1">
+          <mxGeometry height="80" width="180" x="640" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacing=6;" value="&lt;b&gt;PagamentoPix&lt;/b&gt;&lt;hr&gt;+ processar(valor): boolean" vertex="1">
+          <mxGeometry height="80" width="180" x="860" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="c3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=none;startArrow=diamondThin;startFill=1;rounded=0;" target="c2" value="compoe">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="c2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;endFill=1;rounded=0;" target="c1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="c3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;endFill=1;rounded=0;" target="c4" value="notifica">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="c5" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;endArrow=block;endFill=0;rounded=0;" target="c4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="c3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=open;endFill=1;rounded=0;" target="c6" value="usa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="c7" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;endArrow=block;endFill=0;rounded=0;" target="c6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="670" />
+              <mxPoint x="730" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="c8" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;endArrow=block;endFill=0;rounded=0;" target="c6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="c9" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;endArrow=block;endFill=0;rounded=0;" target="c6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="660" />
+              <mxPoint x="730" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
