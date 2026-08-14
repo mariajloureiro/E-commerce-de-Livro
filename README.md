@@ -1,40 +1,51 @@
-# 📚 E-Commerce de Livros (Bookstore)
+# 📚 E-Commerce de Livros (Epílogo)
 
-Um projeto de plataforma de comércio eletrônico de livros desenvolvido em **HTML, CSS, JavaScript e PHP**, integrado ao banco de dados **MySQL** e estruturado com **Padrões de Projeto (Design Patterns)**.
+Um projeto de plataforma de comércio eletrônico de livros desenvolvido com **HTML, CSS, JavaScript, PHP e MySQL**, aplicando os padrões de projeto **Strategy** e **Observer**.
 
 ---
 
 ## 📌 Visão Geral do Projeto
 
-O sistema simula o fluxo completo de uma livraria virtual em uma interface web simples e direta (`index.html`). O foco principal é a demonstração prática dos padrões de projeto para manter a organização e o desacoplamento do código.
+O sistema simula uma livraria virtual completa, gerenciando a navegação do catálogo, o fluxo de compras e a gestão de usuários com autenticação de sessão. O foco principal da arquitetura é a aplicação de **Padrões de Projeto GoF (Gang of Four)** para manter a solução legível e desacoplada.
 
 ---
 
 ## 🧠 Padrões de Projeto Utilizados
 
 ### 1. 🎯 Strategy Pattern (Padrão Estratégia)
-* **Aplicação:** Utilizado para definir diferentes algoritmos de **Cálculo de Frete** (ex: *PAC*, *Sedex*, *Frete Grátis*) e **Métodos de Pagamento** (ex: *Cartão*, *Pix*, *Boleto*) de forma intercambiável, sem necessidade de condicionais complexas (`if/else`).
+* **Cálculo de Frete:** Define estratégias intercambiáveis (ex: *PAC*, *Sedex*, *Frete Grátis*) sem poluir a regra principal com condicionais encadeadas (`if/else`).
+* **Processamento de Pagamento:** Algoritmos específicos para validar e executar pagamentos em diferentes modalidades (*Cartão*, *Pix*, *Boleto*).
 
 ### 2. 👁️ Observer Pattern (Padrão Observador)
-* **Aplicação:** Utilizado para gerenciar os eventos do **Carrinho de Compras** e **Status do Pedido**. Quando um item é adicionado ou alterado, todos os componentes observadores (contador de itens, subtotal e resumo de preços) são atualizados automaticamente na interface.
+* **Gestão de Eventos e Carrinho:** Notificação automática para atualização dinâmica de componentes da interface (contador do carrinho, cálculo de totais e status de pedidos) quando o estado do pedido é alterado.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Camada | Tecnologia |
+| Camada | Tecnologias |
 | :--- | :--- |
-| **Front-end** | HTML5, CSS, JavaScript, PHP|
+| **Front-end** | HTML5, CSS3, JavaScript, PHP |
+| **Back-end / API** | PHP |
 | **Banco de Dados** | MySQL |
 | **Design Patterns** | Strategy Pattern, Observer Pattern |
-| **Controle de Versão** | Git e GitHub |
 
 ---
 
-## 📁 Estrutura do Repositório
+## 📁 Estrutura de Pastas
 
 ```text
 .
-├── capas/         # Imagens das capas dos livros do catálogo
-├── index.html     # Aplicação completa (Estrutura, Estilos, Scripts e Integração)
-└── README.md      # Documentação do projeto
+├── api/                   # Endpoints PHP para comunicação do sistema
+│   ├── cadastrar.php      # Processa o cadastro de novos usuários
+│   ├── livros.php         # Gerencia a busca e catálogo de livros
+│   ├── login.php          # Realiza a autenticação de usuários
+│   ├── logout.php         # Encerra a sessão do usuário
+│   ├── pedido.php         # Processa os pedidos e regras de negócio
+│   └── sessao.php         # Valida o estado das sessões ativas
+├── capas/                 # Imagens das capas dos livros do catálogo
+├── config.php             # Configuração de conexão com o MySQL
+├── epilogo_banco.sql      # Script de criação do banco de dados MySQL
+├── epilogo.html           # Interface principal da aplicação (Livraria)
+├── login.html             # Interface para autenticação e cadastro de usuários
+└── README.md              # Documentação do projeto
