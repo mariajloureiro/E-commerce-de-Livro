@@ -24,7 +24,7 @@ O sistema simula o fluxo completo de uma livraria virtual em uma interface web s
 
 | Camada | Tecnologia |
 | :--- | :--- |
-| **Front-end** | HTML5, CSS3, JavaScript (ES6+) |
+| **Front-end** | HTML5, CSS, JavaScript|
 | **Banco de Dados** | MySQL |
 | **Design Patterns** | Strategy Pattern, Observer Pattern |
 | **Controle de Versão** | Git e GitHub |
