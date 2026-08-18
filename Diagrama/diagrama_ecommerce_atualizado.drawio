@@ -1,0 +1,189 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Diagrama de Classes - Atualizado" id="ecommerce-classes-v2">
+    <mxGraphModel dx="1300" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Genero -->
+        <mxCell id="genero" value="Genero" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=1;resizeParent=1;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="180" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="genero_attrs" value="- id: int&#10;- nome: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="genero">
+          <mxGeometry y="26" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Livro -->
+        <mxCell id="livro" value="Livro" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=1;resizeParent=1;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="220" height="196" as="geometry" />
+        </mxCell>
+        <mxCell id="livro_attrs" value="- id: int&#10;- titulo: String&#10;- autor: String&#10;- preco: double&#10;- estoque: int&#10;- genero: Genero&#10;- cor1: String&#10;- cor2: String&#10;- capa: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="livro">
+          <mxGeometry y="26" width="220" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="livro_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="livro">
+          <mxGeometry y="162" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="livro_methods" value="+ getPreco(): double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="livro">
+          <mxGeometry y="170" width="220" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- ItemPedido -->
+        <mxCell id="itempedido" value="ItemPedido" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=1;resizeParent=1;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="340" y="200" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="itempedido_attrs" value="- livro: Livro&#10;- quantidade: int&#10;- precoUnitario: double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="itempedido">
+          <mxGeometry y="26" width="220" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="itempedido_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="itempedido">
+          <mxGeometry y="84" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="itempedido_methods" value="+ getSubtotal(): double" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="itempedido">
+          <mxGeometry y="92" width="220" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- Pedido -->
+        <mxCell id="pedido" value="Pedido" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=1;resizeParent=1;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="640" y="120" width="300" height="272" as="geometry" />
+        </mxCell>
+        <mxCell id="pedido_attrs" value="- id: int&#10;- itens: List&lt;ItemPedido&gt;&#10;- status: String&#10;- total: double&#10;- criadoEm: DateTime&#10;- observadores: List&lt;Observador&gt;&#10;- estrategiaPagamento: EstrategiaPagamento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="pedido">
+          <mxGeometry y="26" width="300" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="pedido_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="pedido">
+          <mxGeometry y="142" width="300" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="pedido_methods" value="+ adicionarObservador(o)&#10;+ removerObservador(o)&#10;+ notificarObservadores()&#10;+ definirEstrategiaPagamento(e)&#10;+ finalizarPedido()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="pedido">
+          <mxGeometry y="150" width="300" height="96" as="geometry" />
+        </mxCell>
+
+        <!-- Observador (interface) -->
+        <mxCell id="observador" value="&lt;&lt;interface&gt;&gt;&#10;Observador" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=1;resizeParent=1;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="40" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="observador_methods" value="+ atualizar(pedido: Pedido)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="observador">
+          <mxGeometry y="40" width="230" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Cliente -->
+        <mxCell id="cliente" value="Cliente" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=1;resizeParent=1;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="200" width="230" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="cliente_attrs" value="- id: int&#10;- nome: String&#10;- email: String&#10;- senhaHash: String&#10;- criadoEm: DateTime" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="cliente">
+          <mxGeometry y="26" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cliente_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="cliente">
+          <mxGeometry y="106" width="230" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cliente_methods" value="+ atualizar(pedido: Pedido)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="cliente">
+          <mxGeometry y="114" width="230" height="26" as="geometry" />
+        </mxCell>
+
+        <!-- EstrategiaPagamento (interface) -->
+        <mxCell id="estrategia" value="&lt;&lt;interface&gt;&gt;&#10;EstrategiaPagamento" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=1;resizeParent=1;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="640" y="440" width="300" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="estrategia_methods" value="+ processar(valor: double): boolean&#10;+ getCodigo(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="estrategia">
+          <mxGeometry y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- PagamentoCartao -->
+        <mxCell id="cartao" value="PagamentoCartao" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=1;resizeParent=1;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="400" y="620" width="220" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="cartao_attrs" value="- codigo: String = &quot;cartao&quot;&#10;- nome: String = &quot;Cartão de Crédito&quot;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="cartao">
+          <mxGeometry y="26" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cartao_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="cartao">
+          <mxGeometry y="66" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cartao_methods" value="+ processar(valor): boolean&#10;+ getCodigo(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="cartao">
+          <mxGeometry y="74" width="220" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- PagamentoBoleto -->
+        <mxCell id="boleto" value="PagamentoBoleto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=1;resizeParent=1;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="660" y="700" width="220" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="boleto_attrs" value="- codigo: String = &quot;boleto&quot;&#10;- nome: String = &quot;Boleto Bancário&quot;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="boleto">
+          <mxGeometry y="26" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="boleto_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="boleto">
+          <mxGeometry y="66" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="boleto_methods" value="+ processar(valor): boolean&#10;+ getCodigo(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="boleto">
+          <mxGeometry y="74" width="220" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- PagamentoPix -->
+        <mxCell id="pix" value="PagamentoPix" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=1;resizeParent=1;resizeParentMax=0;collapsible=0;swimlaneFillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="960" y="620" width="220" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="pix_attrs" value="- codigo: String = &quot;pix&quot;&#10;- nome: String = &quot;Pix&quot;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="pix">
+          <mxGeometry y="26" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pix_sep" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="pix">
+          <mxGeometry y="66" width="220" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="pix_methods" value="+ processar(valor): boolean&#10;+ getCodigo(): String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;spacingBottom=4;overflow=hidden;portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="pix">
+          <mxGeometry y="74" width="220" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Relacionamentos -->
+
+        <!-- Livro -> Genero (associação 1..1) -->
+        <mxCell id="edge_livro_genero" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="livro" target="genero">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ItemPedido -> Livro (associação) -->
+        <mxCell id="edge_item_livro" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=1;elbow=vertical;startArrow=none;startFill=0;" edge="1" parent="1" source="itempedido" target="livro">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Pedido -o ItemPedido (composição) -->
+        <mxCell id="edge_pedido_item" value="compoe" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=diamondThin;startFill=1;endArrow=none;" edge="1" parent="1" source="pedido" target="itempedido">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Pedido -> Observador (notifica) -->
+        <mxCell id="edge_pedido_observador" value="notifica" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=1;" edge="1" parent="1" source="pedido" target="observador">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="20" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Cliente ..|> Observador (realização) -->
+        <mxCell id="edge_cliente_observador" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=block;endFill=0;endSize=14;" edge="1" parent="1" source="cliente" target="observador">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Pedido -> Cliente (pedido pertence a um cliente) -->
+        <mxCell id="edge_pedido_cliente" value="pertence a" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;" edge="1" parent="1" source="pedido" target="cliente">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Pedido -> EstrategiaPagamento (usa) -->
+        <mxCell id="edge_pedido_estrategia" value="usa" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=1;" edge="1" parent="1" source="pedido" target="estrategia">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- PagamentoCartao ..|> EstrategiaPagamento -->
+        <mxCell id="edge_cartao_estrategia" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=block;endFill=0;endSize=14;" edge="1" parent="1" source="cartao" target="estrategia">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- PagamentoBoleto ..|> EstrategiaPagamento -->
+        <mxCell id="edge_boleto_estrategia" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=block;endFill=0;endSize=14;" edge="1" parent="1" source="boleto" target="estrategia">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- PagamentoPix ..|> EstrategiaPagamento -->
+        <mxCell id="edge_pix_estrategia" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=block;endFill=0;endSize=14;" edge="1" parent="1" source="pix" target="estrategia">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
